@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Roadmap · Doorzicht</title>
+<meta name="description" content="Roadmap van Doorzicht: van proof of concept naar een product in beheer, in vier fasen met een poort per fase. Ruw concept, start van een innovatiefunnel.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  color-scheme:light;
+  --brand:#00811f;
+  --brand-ink:#00651a;
+  --brand-soft:#f3f6f4;
+  --ink:#1d1d1b;
+  --ink2:#2e2e2e;
+  --muted:#5c5c5c;
+  --line:#dde3df;
+  --amber:#b36b00;
+  --amber-soft:#fff6e5;
+  --sign:#1d5fa8;
+  --f-display:"Barlow Condensed","Arial Narrow",sans-serif;
+  --f-body:"Barlow",system-ui,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:#fff;color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.55;-webkit-text-size-adjust:100%}
+a{color:var(--brand-ink)}
+a:focus-visible,summary:focus-visible{outline:3px solid var(--amber);outline-offset:2px;border-radius:3px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 clamp(16px,4vw,40px)}
+
+/* kop */
+.top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding:16px 0 12px;border-bottom:3px solid var(--brand);font-size:13px;color:#4b4b4b}
+.brand{display:flex;flex-direction:column;line-height:1.2}
+.brand b{color:var(--brand);font-size:18px;font-weight:700}
+.top nav{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.tag{font-family:var(--f-mono);font-size:11px;color:var(--brand);border:1px solid var(--brand);border-radius:999px;padding:3px 10px;white-space:nowrap}
+.back{font-weight:600;text-decoration:none;padding:6px 2px}
+.back:hover{text-decoration:underline}
+
+/* hero */
+.hero{padding:clamp(24px,5vw,48px) 0 8px}
+.eyebrow{font-family:var(--f-mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:0 0 6px}
+h1{font-family:var(--f-display);font-weight:700;font-size:clamp(52px,11vw,96px);line-height:.9;margin:0;text-transform:uppercase;letter-spacing:-.01em}
+h1 span{color:var(--brand)}
+.tagline{font-family:var(--f-display);font-weight:600;font-size:clamp(20px,3.4vw,28px);line-height:1.15;color:var(--brand);margin:10px 0 0}
+.draft{background:var(--amber-soft);border-left:4px solid var(--amber);border-radius:6px;padding:10px 14px;margin:20px 0 0;max-width:68ch;font-size:15px;color:var(--ink2)}
+.draft b{font-family:var(--f-display);font-size:17px;color:var(--amber);letter-spacing:.02em}
+
+h2{font-family:var(--f-display);font-weight:700;font-size:clamp(26px,4vw,34px);line-height:1.05;margin:0 0 6px;color:var(--ink)}
+.sec{padding:clamp(28px,5vw,44px) 0 0}
+.sec>p.lead{margin:0 0 16px;max-width:66ch;color:var(--ink2)}
+
+/* trechter */
+.funnel{display:grid;gap:6px;margin:6px 0 0}
+.fbar{margin:0 auto;border-radius:8px;padding:10px 14px;color:#fff;display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.fbar b{font-family:var(--f-display);font-size:19px;letter-spacing:.02em}
+.fbar span{font-size:14px}
+.f1{width:100%;background:#4f9d63}
+.f2{width:80%;background:#2f8b49}
+.f3{width:58%;background:#00811f}
+.f4{width:38%;background:#00591a}
+.fnote{font-size:13px;color:var(--muted);margin:8px 0 0}
+@media (max-width:640px){.f2{width:92%}.f3{width:84%}.f4{width:76%}}
+
+/* tijdlijn */
+.line{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin:0;padding:0;list-style:none;counter-reset:f}
+.line li{position:relative;padding:22px 8px 0 0}
+.line li::before{content:"";position:absolute;left:0;right:0;top:9px;height:3px;background:var(--line)}
+.line li.done::before,.line li.now::before{background:var(--brand)}
+.line li::after{content:"";position:absolute;left:0;top:2px;width:17px;height:17px;border-radius:50%;background:#fff;border:3px solid var(--line)}
+.line li.done::after{background:var(--brand);border-color:var(--brand)}
+.line li.now::after{border-color:var(--brand);box-shadow:0 0 0 4px rgba(0,129,31,.18)}
+.line a{display:block;text-decoration:none;color:inherit}
+.line a:hover b{text-decoration:underline}
+.line small{display:block;font-family:var(--f-mono);font-size:11px;color:var(--muted);letter-spacing:.04em;text-transform:uppercase}
+.line b{font-family:var(--f-display);font-size:20px;line-height:1.1;display:block}
+.line .st{display:inline-block;margin-top:4px;font-size:12px;font-weight:600;color:var(--brand-ink)}
+.here{display:inline-block;background:var(--brand);color:#fff;font-family:var(--f-mono);font-size:11px;border-radius:999px;padding:2px 9px;margin:0 0 10px;letter-spacing:.03em}
+@media (max-width:720px){
+  .line{grid-template-columns:1fr;gap:14px}
+  .line li{padding:0 0 0 30px}
+  .line li::before{left:8px;right:auto;top:0;bottom:-14px;width:3px;height:auto}
+  .line li:last-child::before{display:none}
+  .line li::after{top:2px}
+}
+
+/* fasekaarten */
+.phases{display:grid;gap:16px}
+.phase{border:1px solid var(--line);border-top:5px solid var(--brand);border-radius:10px;padding:16px clamp(14px,3vw,22px) 18px;scroll-margin-top:16px}
+.phase.later{border-top-color:#9aa79f}
+.ph-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.ph-n{font-family:var(--f-mono);font-size:12px;color:var(--brand-ink);text-transform:uppercase;letter-spacing:.06em}
+.ph-head h3{font-family:var(--f-display);font-size:28px;line-height:1.05;margin:0}
+.pill{margin-left:auto;font-family:var(--f-mono);font-size:11px;border-radius:999px;padding:3px 10px;border:1px solid var(--line);color:var(--muted);white-space:nowrap}
+.pill.on{background:var(--brand);border-color:var(--brand);color:#fff}
+.pill.next{border-color:var(--brand);color:var(--brand-ink)}
+.ph-goal{margin:6px 0 12px;max-width:68ch;color:var(--ink2)}
+.cols{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.col{background:var(--brand-soft);border-radius:8px;padding:10px 12px;min-width:0}
+.col h4{font-family:var(--f-display);font-size:17px;letter-spacing:.03em;margin:0 0 4px;color:var(--brand-ink)}
+.col ul{margin:0;padding-left:18px;font-size:14.5px}
+.col li{margin:2px 0}
+.col p{margin:0;font-size:14.5px}
+.gate{grid-column:1/-1;background:#fff;border:2px solid var(--brand);border-radius:8px;padding:8px 12px;font-size:14.5px}
+.gate b{font-family:var(--f-display);font-size:17px;color:var(--brand-ink);letter-spacing:.03em;margin-right:6px}
+.meta{margin:10px 0 0;font-size:13px;color:var(--muted);display:flex;gap:6px 18px;flex-wrap:wrap}
+.meta b{color:var(--ink2);font-weight:600}
+@media (max-width:820px){.cols{grid-template-columns:1fr}}
+
+/* scorecard */
+.score{width:100%;border-collapse:collapse;font-size:14.5px}
+.score th,.score td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+.score th{font-family:var(--f-display);font-size:16px;letter-spacing:.03em;color:var(--brand-ink);background:var(--brand-soft)}
+.score td:first-child{font-weight:600;white-space:nowrap}
+.scroll{overflow-x:auto}
+
+/* risico's */
+.risks{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.risk{border:1px solid var(--line);border-radius:8px;padding:12px 14px}
+.risk b{font-family:var(--f-display);font-size:19px;display:block;margin-bottom:2px}
+.risk p{margin:0 0 6px;font-size:14.5px;color:var(--ink2)}
+.risk .fix{font-size:14px;color:var(--brand-ink);font-weight:600}
+@media (max-width:720px){.risks{grid-template-columns:1fr}}
+
+.open{background:var(--brand-soft);border-left:4px solid var(--brand);border-radius:6px;padding:12px 16px}
+.open ul{margin:6px 0 0;padding-left:20px}
+.cta{display:inline-block;margin-top:16px;background:var(--brand);color:#fff;text-decoration:none;font-family:var(--f-display);font-weight:600;font-size:20px;letter-spacing:.03em;border-radius:8px;padding:10px 18px}
+.cta:hover{background:var(--brand-ink)}
+
+footer{margin-top:48px;border-top:1px solid var(--line);padding:14px 0 28px;color:var(--muted);font-size:12.5px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+@media print{.back,.cta{display:none}.phase{break-inside:avoid}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="brand"><b>Gemeente Rotterdam</b><span>Stadsbeheer · Parkeren</span></div>
+    <nav aria-label="Navigatie">
+      <a class="back" href="index.html">← Doorzicht Garage</a>
+      <span class="tag">Concept</span>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <p class="eyebrow">Van proof of concept naar product</p>
+      <h1>Road<span>map</span></h1>
+      <p class="tagline">Eerst laten zien, dan scherp krijgen, dan borgen, dan beheren.</p>
+      <p class="draft"><b>Ruw concept.</b> Dit is de start van een innovatiefunnel, geen vastgesteld plan. Doorlooptijden, beslissers en criteria zijn nog niet afgesproken en worden samen met Stadsbeheer Digitaal ingevuld.</p>
+    </section>
+
+    <section class="sec" aria-labelledby="h-tijdlijn">
+      <h2 id="h-tijdlijn">Waar staan we?</h2>
+      <p class="lead">Vier fasen, elk afgesloten met een poort. Een use case komt pas door de poort als de criteria gehaald zijn. Stoppen is een geldige uitkomst.</p>
+      <span class="here">Wij zijn hier: einde fase 1, start fase 2</span>
+      <ol class="line" aria-label="Fasen van de roadmap">
+        <li class="done"><a href="#fase-1"><small>Fase 1</small><b>Proof of Concept</b><span class="st">v1 staat</span></a></li>
+        <li class="now"><a href="#fase-2"><small>Fase 2</small><b>Itereren op behoefte</b><span class="st">Volgende stap</span></a></li>
+        <li><a href="#fase-3"><small>Fase 3</small><b>Borgspoor</b><span class="st">Later · Stadsbeheer Digitaal</span></a></li>
+        <li><a href="#fase-4"><small>Fase 4</small><b>Beheer</b><span class="st">Later · Stadsbeheer Digitaal</span></a></li>
+      </ol>
+    </section>
+
+    <section class="sec" aria-labelledby="h-trechter">
+      <h2 id="h-trechter">Een trechter, geen rechte lijn</h2>
+      <p class="lead">Meerdere use cases lopen tegelijk en vallen op verschillende momenten af. Dat is de bedoeling: aan het eind blijft alleen over wat echt nodig is.</p>
+      <div class="funnel" role="img" aria-label="Trechter: veel ideeën, een longlist, een shortlist en een beperkt aantal use cases in beheer">
+        <div class="fbar f1"><b>Fase 1 · Ideeën en reacties</b><span>Alles wat het model oproept</span></div>
+        <div class="fbar f2"><b>Fase 2 · Longlist</b><span>Gescoord met de intake-scorecard</span></div>
+        <div class="fbar f3"><b>Fase 2 → 3 · Shortlist</b><span>Indicatief 2 à 3 use cases</span></div>
+        <div class="fbar f4"><b>Fase 4 · In beheer</b><span>Alleen wat de poort haalt</span></div>
+      </div>
+      <p class="fnote">Aantallen zijn indicatief. De werkelijke aantallen komen hier te staan zodra fase 2 loopt.</p>
+    </section>
+
+    <section class="sec" aria-labelledby="h-fasen">
+      <h2 id="h-fasen">De vier fasen</h2>
+      <div class="phases">
+
+        <article class="phase" id="fase-1">
+          <div class="ph-head"><span class="ph-n">Fase 1</span><h3>Proof of Concept</h3><span class="pill on">v1 staat</span></div>
+          <p class="ph-goal">Laten zien wat kan, zodat mensen erop gaan reageren. Snel en goedkoop itereren met AI-hulp maakt een geavanceerde proof of concept mogelijk.</p>
+          <div class="cols">
+            <div class="col"><h4>Activiteiten</h4><ul><li>3D-model Doorzicht Garage met fictieve garage Toppert</li><li>Rondleidingen per rol</li><li>Fictieve en open data</li></ul></div>
+            <div class="col"><h4>Uitkomst</h4><p>Werkende demo die als gespreksstarter dient.</p></div>
+            <div class="col"><h4>Afspraak</h4><p>De code van de proof of concept is een wegwerpprototype, tenzij fase 3 anders besluit.</p></div>
+            <div class="gate"><b>Poort</b>Raakt het genoeg om er een gesprek over te voeren?</div>
+          </div>
+          <p class="meta"><span><b>Eigenaar:</b> Parkeren</span><span><b>Doorlooptijd:</b> nader te bepalen</span></p>
+        </article>
+
+        <article class="phase" id="fase-2">
+          <div class="ph-head"><span class="ph-n">Fase 2</span><h3>Itereren op behoefte</h3><span class="pill next">Volgende stap</span></div>
+          <p class="ph-goal">De echte behoefte concreet maken, zodat we straks alleen bouwen wat we echt willen. Nog steeds met dummy data.</p>
+          <div class="cols">
+            <div class="col"><h4>Activiteiten</h4><ul><li>Demosessies per rol</li><li>Use cases ophalen en scoren met de scorecard</li><li>Per use case één probleemstelling met een eigenaar</li><li>Databron-check: bestaat de data, wie beheert haar, is de kwaliteit genoeg?</li><li>Korte screening op privacy (AVG) en informatiebeveiliging</li></ul></div>
+            <div class="col"><h4>Uitkomst</h4><ul><li>Geprioriteerde longlist</li><li>Shortlist van 2 à 3 use cases met baten en een eerste kostenschatting</li></ul></div>
+            <div class="col"><h4>Afspraak</h4><p>Stoppen is een geldige uitkomst. Een use case zonder eigenaar of zonder data valt af.</p></div>
+            <div class="gate"><b>Poort</b>Elke shortlist-use-case heeft een inhoudelijk eigenaar, een meetbaar probleem en datadekking.</div>
+          </div>
+          <p class="meta"><span><b>Eigenaar:</b> Parkeren, met eigenaren per use case</span><span><b>Doorlooptijd:</b> nader te bepalen</span></p>
+        </article>
+
+        <article class="phase later" id="fase-3">
+          <div class="ph-head"><span class="ph-n">Fase 3</span><h3>Borgspoor</h3><span class="pill">Later</span></div>
+          <p class="ph-goal">Via Stadsbeheer Digitaal en het Innovatiespoor bepalen wat we hergebruiken, kopen of bouwen. We evalueren welke nieuwe of bestaande technologieën, processen en producten bruikbaar zijn.</p>
+          <div class="cols">
+            <div class="col"><h4>Activiteiten</h4><ul><li>Landschapsscan binnen en buiten de gemeente</li><li>Leren van wat er al is, zoals het werk van Basisinformatie met Rotterdam 3D</li><li>Architectuurtoets</li><li>Toets informatiebeveiliging en privacy (DPIA)</li><li>Businesscase met totale kosten van eigendom</li></ul></div>
+            <div class="col"><h4>Uitkomst</h4><ul><li>Go/no-go per use case</li><li>Routekeuze: hergebruiken, kopen of bouwen</li></ul></div>
+            <div class="col"><h4>Afspraak</h4><p>Of een AI-tool als Claude past, of gangbare tooling beter is, wordt hier getoetst op kosten, beheer, beveiliging en privacy.</p></div>
+            <div class="gate"><b>Poort</b>Besluit van Stadsbeheer Digitaal en gedekte financiering.</div>
+          </div>
+          <p class="meta"><span><b>Eigenaar:</b> Stadsbeheer Digitaal</span><span><b>Doorlooptijd:</b> nader te bepalen</span></p>
+        </article>
+
+        <article class="phase later" id="fase-4">
+          <div class="ph-head"><span class="ph-n">Fase 4</span><h3>Beheer</h3><span class="pill">Later</span></div>
+          <p class="ph-goal">Stabiel en betaalbaar in de lucht houden, geborgd via Stadsbeheer Digitaal.</p>
+          <div class="cols">
+            <div class="col"><h4>Activiteiten</h4><ul><li>Afspraken over change management</li><li>Functioneel en technisch beheer</li><li>Financiën: jaarlijkse kosten en bijdrage per afdeling</li><li>Documentatie, tests en eigenaarschap van de code</li><li>Versiebeleid en afbouw</li></ul></div>
+            <div class="col"><h4>Uitkomst</h4><p>Product in beheer met getrainde gebruikers.</p></div>
+            <div class="col"><h4>Afspraak</h4><p>Ook in beheer blijft afbouwen een optie als het gebruik wegvalt.</p></div>
+            <div class="gate"><b>Poort</b>Beheerovereenkomst getekend en gebruikers getraind.</div>
+          </div>
+          <p class="meta"><span><b>Eigenaar:</b> Stadsbeheer Digitaal</span><span><b>Doorlooptijd:</b> nader te bepalen</span></p>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="sec" aria-labelledby="h-score">
+      <h2 id="h-score">Intake-scorecard voor use cases</h2>
+      <p class="lead">Voorstel voor fase 2. Elke use case krijgt op deze vijf punten een score, zodat de keuze voor de shortlist te volgen is.</p>
+      <div class="scroll">
+        <table class="score">
+          <thead><tr><th scope="col">Criterium</th><th scope="col">Vraag</th></tr></thead>
+          <tbody>
+            <tr><td>Impact</td><td>Welke beslissing of welk werk wordt beter, en hoe vaak komt dat voor?</td></tr>
+            <tr><td>Haalbaarheid</td><td>Kan dit met de techniek en capaciteit die we redelijkerwijs hebben?</td></tr>
+            <tr><td>Datadekking</td><td>Bestaat de data, wie beheert haar en is de kwaliteit voldoende?</td></tr>
+            <tr><td>Eigenaar</td><td>Wie in de organisatie wil dit echt hebben en trekt het mee?</td></tr>
+            <tr><td>Hergebruik</td><td>Bestaat dit al elders in Rotterdam, of kunnen anderen het ook gebruiken?</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="sec" aria-labelledby="h-risico">
+      <h2 id="h-risico">Risico's en hoe we ze opvangen</h2>
+      <div class="risks">
+        <div class="risk"><b>Mooie demo, geen voeding</b><p>Het grootste gat zit tussen dummy data en echte data. De demo kan overtuigen terwijl de bron niet bestaat of niet te ontsluiten is.</p><span class="fix">Databron-check per use case in fase 2.</span></div>
+        <div class="risk"><b>Privacy te laat ontdekt</b><p>Als AVG en informatiebeveiliging pas in fase 3 komen, blijkt laat dat een use case niet mag.</p><span class="fix">Korte screening per shortlist-use-case in fase 2.</span></div>
+        <div class="risk"><b>Code die niemand kan beheren</b><p>Snel bouwen met AI is een sterkte in fase 1 en 2. Beheer vraagt documentatie, tests en een eigenaar.</p><span class="fix">Proof of concept is wegwerp, tenzij fase 3 anders beslist.</span></div>
+        <div class="risk"><b>Fase 2 loopt eindeloos door</b><p>Zonder criteria blijft itereren aantrekkelijker dan beslissen.</p><span class="fix">Een poort per fase en stoppen als geldige uitkomst.</span></div>
+      </div>
+    </section>
+
+    <section class="sec" aria-labelledby="h-open">
+      <h2 id="h-open">Nog open</h2>
+      <div class="open">
+        <ul>
+          <li>Indicatieve doorlooptijd per fase.</li>
+          <li>Wie beslist bij de poort van fase 2, en wanneer is het reviewmoment?</li>
+          <li>Hoe sluit het Innovatiespoor van Stadsbeheer Digitaal precies aan op deze fasering?</li>
+          <li>Hoe nemen we use cases aan: via een intakeformulier, of via de wensen die collega's achterlaten in het model?</li>
+        </ul>
+      </div>
+      <a class="cta" href="index.html">Terug naar Doorzicht Garage <span aria-hidden="true">→</span></a>
+    </section>
+  </main>
+
+  <footer>Een concept van Robert Riteco, Productmanager Data bij Stadsbeheer, Gemeente Rotterdam · alle gegevens in Doorzicht zijn fictief</footer>
+</div>
+</body>
+</html>
